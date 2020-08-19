@@ -1,0 +1,73 @@
+{% load static %}
+{% block content %}
+
+<html>
+
+<style>
+    .column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+</style>
+<body>
+
+<h2>Object Detection</h2>
+<br>
+
+
+<form method="POST" accept-charset="UTF-8" name="image_upload" enctype="multipart/form-data">
+
+    {% csrf_token %}
+    <div>
+        <b><label for="icons" class="control-label">Select input image</label></b>
+        <br><br>
+        <input class="form-control avatar" id="asset" required name="image" type="file"><br><br>
+    </div>
+
+    <input type="submit" value="Submit">
+    <br>
+    <br>
+
+    {% if messages %}
+
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <div class="row">
+        <div class="column">
+            {% if file %}
+            <b><label for="icons" class="control-label">Input Image</label></b>
+
+            <img src="/media/{{file}}" alt="Snow" style="width:100%" width="400" height="400">
+            {% endif %}
+        </div>
+        <div class="column">
+            {% if output_file %}
+            <b> <label for="icons" class="control-label">Output Image</label> </b>
+            <img src="/media/{{output_file}}" alt="Snow" style="width:100%" width="400" height="400">
+            {% endif %}
+        </div>
+    </div>
+
+
+</form>
+
+
+</body>
+</html>
+
+{% endblock content %}
