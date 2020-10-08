@@ -2,6 +2,3 @@
 Model - ssd mobilenet v1
 Pretrained with dataset - coco 2017/11/17
 ----------------------------------------------------------------
-
-
-# Eaglai Detect 
