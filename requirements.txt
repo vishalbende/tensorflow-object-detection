@@ -12,6 +12,7 @@ contextlib2==0.6.0.post1
 cycler==0.10.0
 Cython==0.29.21
 dataclasses
+pytest
 decorator==4.4.2
 defusedxml==0.6.0
 Django==2.2
