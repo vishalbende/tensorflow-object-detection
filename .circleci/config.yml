@@ -35,6 +35,8 @@ jobs:
           # pip-dependency-file: test-requirements.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
       - run: pip install --upgrade pip 
       - run: echo "deploy my app"
+      - run: python3.8 -m uvicorn api.main:_get_app --factory --reload --port 8000 --host 0.0.0.0
+      - run: echo "deployed successfully"
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
